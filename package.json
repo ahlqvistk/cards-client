@@ -16,6 +16,7 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "most": "^1.7.3",
     "socket.io-client": "^2.1.1"
   }
 }
