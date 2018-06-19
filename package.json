@@ -12,10 +12,12 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
+    "eslint-plugin-react": "^7.9.1",
     "parcel-bundler": "^1.8.1",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "hyperapp": "^1.2.6",
     "most": "^1.7.3",
     "socket.io-client": "^2.1.1"
   }

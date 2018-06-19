@@ -4,10 +4,23 @@
     "google"
   ],
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 6,
     "sourceType": "module"
   },
+  "plugins": [
+    "react"
+  ],
   "rules": {
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
   }
 }
