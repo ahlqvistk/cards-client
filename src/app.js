@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-/* global document */
+/* global console, document */
 import {h, app} from 'hyperapp';
 import {fromEvent} from 'most';
 import io from 'socket.io-client';
@@ -20,5 +20,6 @@ const view = (state) => (
 );
 
 state$.observe((state) => {
+  console.log(state);
   app(state, actions, view, document.body);
 });

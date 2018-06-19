@@ -1,19 +1,51 @@
+$felt-green: #076324;
+$player-width: 250px;
+
+* {
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
 }
 
 body {
+    background-color: $felt-green;
     height: 100%;
     margin: 0;
 }
 
 .player {
     background-color: #fff;
-    margin: 10px;
-    padding: 10px;
+    position: absolute;
+    text-align: center;
+    width: $player-width;
+}
+
+.player-0 {
+    bottom: 0;
+    left: 50%;
+    margin-left: -($player-width / 2);
+}
+
+.player-1 {
+    top: 0;
+    left: 50%;
+    margin-left: -($player-width / 2);
+}
+
+.player-2 {
+    top: 50%;
+}
+
+.player-3 {
+    top: 50%;
+    right: 0;
 }
 
 .table {
-    background-color: #076324;
+    border: dashed 1px;
+    border-radius: 50%;
     height: 100%;
+    width: 100%;
 }
