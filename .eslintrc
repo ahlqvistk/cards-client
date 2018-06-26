@@ -16,7 +16,8 @@
   "rules": {
     "indent": ["error", 2],
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "require-jsdoc": 0
   },
   "settings": {
     "react": {

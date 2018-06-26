@@ -11,11 +11,19 @@ const state$ = fromEvent('state', socket);
 
 const actions = () => {};
 
+function startGame() {
+  return socket.emit('action', {type: 'start game'});
+}
+
 const view = (state) => (
   <div class='table'>
     {state.players.map((player, index) => (
       <span class={'player player-' + index}>{player}</span>
     ))}
+    {state.creator === state.id && state.status === 'waiting to start game' ?
+      <button onclick={startGame}>Start</button> :
+      null
+    }
   </div>
 );
 
