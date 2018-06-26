@@ -19,7 +19,7 @@ const view = (state) => (
   </div>
 );
 
-state$.observe((state) => {
+state$.debounce(100).observe((state) => {
   console.log(state);
   app(state, actions, view, document.body);
 });
