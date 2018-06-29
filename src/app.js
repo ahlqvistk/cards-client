@@ -18,7 +18,7 @@ function startGame() {
 const view = (state) => (
   <div class='table'>
     {state.players.map((player, index) => (
-      <span class={'player player-' + index}>{player}</span>
+      <span class={'player player-' + index}>{player.socket.id}</span>
     ))}
     {state.creator === state.id && state.status === 'waiting to start game' ?
       <button onclick={startGame}>Start</button> :
