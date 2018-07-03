@@ -1,5 +1,6 @@
+@import 'player';
+
 $felt-green: #076324;
-$player-width: 250px;
 
 * {
     box-sizing: border-box;
@@ -13,34 +14,6 @@ body {
     background-color: $felt-green;
     height: 100%;
     margin: 0;
-}
-
-.player {
-    background-color: #fff;
-    position: absolute;
-    text-align: center;
-    width: $player-width;
-}
-
-.player-0 {
-    bottom: 0;
-    left: 50%;
-    margin-left: -($player-width / 2);
-}
-
-.player-1 {
-    top: 0;
-    left: 50%;
-    margin-left: -($player-width / 2);
-}
-
-.player-2 {
-    top: 50%;
-}
-
-.player-3 {
-    top: 50%;
-    right: 0;
 }
 
 .table {
