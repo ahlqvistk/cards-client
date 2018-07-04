@@ -7,7 +7,7 @@ export function getSuit(card) {
   case 'c':
     return 'clubs';
   case 'd':
-    return 'diams';
+    return 'diamonds';
   case 'h':
     return 'hearts';
   case 's':
