@@ -1,7 +1,6 @@
 $player-width: 250px;
 
 .player {
-    background-color: #fff;
     position: absolute;
     text-align: center;
     width: $player-width;
@@ -26,4 +25,8 @@ $player-width: 250px;
 .player-3 {
     top: 50%;
     right: 0;
+}
+
+.player-id {
+    background-color: #fff;
 }

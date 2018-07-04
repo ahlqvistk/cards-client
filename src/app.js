@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 
 import './scss/style.scss';
 
-import {Player} from './components/player';
+import {Table} from './components/table';
 
 const socket = io();
 const state$ = fromEvent('state', socket);
@@ -18,12 +18,10 @@ function startGame() {
 }
 
 const view = (state) => (
-  <div class='table'>
-    {state.players.map((player, index) => (
-      <Player cards={player.cards} id={player.socket.id} index={index} />
-    ))}
+  <div class='app'>
+    <Table players={state.players} />
     {state.creator === state.id && state.status === 'waiting to start game' ?
-      <button onclick={startGame}>Start</button> :
+      <button class='start-button' onclick={startGame}>Start</button> :
       null
     }
   </div>
