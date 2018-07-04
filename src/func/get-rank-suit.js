@@ -14,3 +14,16 @@ export function getSuit(card) {
     return 'spades';
   }
 }
+
+export function getUnicodeSuit(card) {
+  switch (card.slice(0, 1)) {
+  case 'c':
+    return '\u2663';
+  case 'd':
+    return '\u2666';
+  case 'h':
+    return '\u2665';
+  case 's':
+    return '\u2660';
+  }
+}
