@@ -1,7 +1,10 @@
 import {h} from 'hyperapp';
 
 export const Card = ({card}) => (
-  <div class={'card card-' + card}>
-    {card}
-  </div>
+  <li>
+    <div class={'card rank-7 spades'}>
+      <span class="rank">7</span>
+      <span class="suit">&spades;</span>
+    </div>
+  </li>
 );
