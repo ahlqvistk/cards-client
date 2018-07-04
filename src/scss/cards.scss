@@ -11,6 +11,7 @@
 ********************************************************************/
 
 .playingCards .card {
+    box-sizing: initial;
     display: inline-block;
     width: 3.3em;
     height: 4.6em;
