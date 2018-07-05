@@ -1,6 +1,7 @@
 import {h} from 'hyperapp';
 
 import {Player} from './player';
+import {Trump} from './trump';
 
 export const Table = ({state}) => (
   <div class='table'>
@@ -12,5 +13,8 @@ export const Table = ({state}) => (
         key={player.socket.id}
       />
     ))}
+    {state.trump ?
+      <Trump card={state.trump} /> : null
+    }
   </div>
 );
