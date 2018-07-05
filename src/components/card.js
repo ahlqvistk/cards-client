@@ -2,6 +2,14 @@ import {h} from 'hyperapp';
 import {getRank, getSuit, getUnicodeSuit} from '../func/get-rank-suit';
 
 export const Card = ({card}) => {
+  if (card === 'back') {
+    return (
+      <li>
+        <div class='card back'></div>
+      </li>
+    );
+  }
+
   const rank = getRank(card);
   const suit = getSuit(card);
   const unicodeSuit = getUnicodeSuit(card);

@@ -2,7 +2,6 @@ $player-width: 250px;
 
 .player {
     position: absolute;
-    text-align: center;
     width: $player-width;
 }
 
@@ -13,18 +12,20 @@ $player-width: 250px;
 }
 
 .player-1 {
+    top: 50%;
+    transform: rotate(-90deg) translate(29%, -45%);
+}
+
+.player-2 {
     top: 0;
     left: 50%;
     margin-left: -($player-width / 2);
 }
 
-.player-2 {
-    top: 50%;
-}
-
 .player-3 {
-    top: 50%;
     right: 0;
+    top: 50%;
+    transform: rotate(90deg) translate(-25%, -45%);
 }
 
 .player-id {
