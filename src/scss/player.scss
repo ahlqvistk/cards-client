@@ -3,6 +3,12 @@ $player-width: 250px;
 .player {
     position: absolute;
     width: $player-width;
+
+    .dealer {
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
 }
 
 .player-0 {
