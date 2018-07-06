@@ -18,7 +18,7 @@ export const Table = ({state}) => (
     {state.trump ?
       <Trump card={state.trump} /> : null
     }
-    {state.status === 'bidding' ?
+    {state.status === 'bidding' && state.activePlayer === state.id ?
       <Bid max={state.players[0].cards.length} /> : null
     }
   </div>
