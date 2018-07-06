@@ -1,5 +1,6 @@
 import {h} from 'hyperapp';
 
+import {Bid} from './bid';
 import {Player} from './player';
 import {Trump} from './trump';
 
@@ -16,6 +17,9 @@ export const Table = ({state}) => (
     ))}
     {state.trump ?
       <Trump card={state.trump} /> : null
+    }
+    {state.status === 'bidding' ?
+      <Bid max={state.players[0].cards.length} /> : null
     }
   </div>
 );
