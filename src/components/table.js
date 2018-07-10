@@ -1,5 +1,7 @@
 import {h} from 'hyperapp';
 
+import {invalidBids} from '../func/invalid-bids';
+
 import {Bid} from './bid';
 import {Player} from './player';
 import {Trump} from './trump';
@@ -19,7 +21,11 @@ export const Table = ({socket, state}) => (
       <Trump card={state.trump} /> : null
     }
     {state.status === 'bidding' && state.activePlayer === state.id ?
-      <Bid max={state.players[0].cards.length} socket={socket} /> : null
+      <Bid
+        disabled={invalidBids(state)}
+        max={state.players[0].cards.length}
+        socket={socket}
+      /> : null
     }
   </div>
 );
