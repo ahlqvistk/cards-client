@@ -19,7 +19,7 @@ function startGame() {
 
 const view = (state) => (
   <div class='app'>
-    <Table state={state} />
+    <Table socket={socket} state={state} />
     {state.creator === state.id && state.status === 'waiting to start game' ?
       <button class='start-button' onclick={startGame}>Start</button> :
       null

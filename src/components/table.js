@@ -4,7 +4,7 @@ import {Bid} from './bid';
 import {Player} from './player';
 import {Trump} from './trump';
 
-export const Table = ({state}) => (
+export const Table = ({socket, state}) => (
   <div class='table'>
     {state.players.map((player, index) => (
       <Player
@@ -19,7 +19,7 @@ export const Table = ({state}) => (
       <Trump card={state.trump} /> : null
     }
     {state.status === 'bidding' && state.activePlayer === state.id ?
-      <Bid max={state.players[0].cards.length} /> : null
+      <Bid max={state.players[0].cards.length} socket={socket} /> : null
     }
   </div>
 );
