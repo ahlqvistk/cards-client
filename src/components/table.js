@@ -10,6 +10,7 @@ export const Table = ({socket, state}) => (
   <div class='table'>
     {state.players.map((player, index) => (
       <Player
+        active={state.activePlayer === player.socket.id}
         cards={player.hasOwnProperty('cards') ? player.cards : []}
         dealer={state.dealer === player.socket.id}
         id={player.socket.id}
