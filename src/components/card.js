@@ -30,7 +30,7 @@ export const Card = ({card}) => (state) => {
 
   return (
     <li>
-      {valid ?
+      {valid && state.status === 'playing' ?
         <a
           class={`card rank-${rank} ${suit}`}
           onclick={() => playCard(card)}
