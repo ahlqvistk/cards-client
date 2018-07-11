@@ -1,9 +1,14 @@
 import {h} from 'hyperapp';
 import {invalidBids} from '../func/invalid-bids';
+import {socket} from '../app';
 
 import {Bid} from './bid';
 import {Player} from './player';
 import {Trump} from './trump';
+
+function startGame() {
+  return socket.emit('action', {type: 'start game'});
+}
 
 export const Table = ({state}) => (
   <div class='table'>
@@ -25,6 +30,10 @@ export const Table = ({state}) => (
         disabled={invalidBids(state)}
         max={state.players[0].cards.length}
       /> : null
+    }
+    {state.creator === state.id && state.status === 'waiting to start game' ?
+      <button class='start-button' onclick={startGame}>Start</button> :
+      null
     }
   </div>
 );

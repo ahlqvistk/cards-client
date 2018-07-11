@@ -14,18 +14,10 @@ const actions = {
   setState: (state) => (state),
 };
 
-function startGame() {
-  return socket.emit('action', {type: 'start game'});
-}
-
 const view = (state) => (
   state.hasOwnProperty('players') ?
     <div class='app'>
       <Table state={state} />
-      {state.creator === state.id && state.status === 'waiting to start game' ?
-        <button class='start-button' onclick={startGame}>Start</button> :
-        null
-      }
     </div> : null
 );
 
