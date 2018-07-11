@@ -10,7 +10,7 @@ function startGame() {
   return socket.emit('action', {type: 'start game'});
 }
 
-export const Table = ({state}) => (
+export const Table = () => (state) => (
   <div class='table'>
     {state.players.map((player, index) => (
       <Player

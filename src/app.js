@@ -17,7 +17,7 @@ const actions = {
 const view = (state) => (
   state.hasOwnProperty('players') ?
     <div class='app'>
-      <Table state={state} />
+      <Table />
     </div> : null
 );
 
