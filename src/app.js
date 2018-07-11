@@ -8,26 +8,39 @@ import './scss/style.scss';
 
 import {Table} from './components/table';
 
-export const socket = io();
-const state$ = fromEvent('state', socket);
-
-const actions = () => {};
+const state = {};
+const actions = {
+  getState: () => (state) => state,
+  setState: (state) => (state),
+};
 
 function startGame() {
   return socket.emit('action', {type: 'start game'});
 }
 
 const view = (state) => (
-  <div class='app'>
-    <Table state={state} />
-    {state.creator === state.id && state.status === 'waiting to start game' ?
-      <button class='start-button' onclick={startGame}>Start</button> :
-      null
-    }
-  </div>
+  state.hasOwnProperty('players') ?
+    <div class='app'>
+      <Table state={state} />
+      {state.creator === state.id && state.status === 'waiting to start game' ?
+        <button class='start-button' onclick={startGame}>Start</button> :
+        null
+      }
+    </div> : null
 );
+
+const main = app(state, actions, view, document.body);
+const getState = main.getState;
+
+const socket = io();
+const state$ = fromEvent('state', socket);
 
 state$.debounce(100).observe((state) => {
   console.log(state);
-  app(state, actions, view, document.body);
+  main.setState(state);
 });
+
+export {
+  getState,
+  socket,
+};
