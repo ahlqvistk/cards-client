@@ -1,6 +1,6 @@
 import {h} from 'hyperapp';
-import {invalidBids} from '../func/invalid-bids';
 import {socket} from '../app';
+import invalidBids from '../../../cards-common/src/invalid-bids';
 
 import {Bid} from './bid';
 import {Player} from './player';

@@ -1,5 +1,9 @@
 import {h} from 'hyperapp';
-import {getRank, getSuit, getUnicodeSuit} from '../func/get-rank-suit';
+import {
+  getRank,
+  getSuit,
+  getUnicodeSuit,
+} from '../../../cards-common/src/get-rank-suit';
 
 export const Trump = ({card}) => {
   const rank = getRank(card);

@@ -9,8 +9,7 @@
     "test:once": "jest"
   },
   "pre-commit": [
-    "lint",
-    "test:once"
+    "lint"
   ],
   "author": "Kristoffer Ahlqvist",
   "devDependencies": {
