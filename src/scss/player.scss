@@ -1,13 +1,13 @@
-$player-width: 250px;
-
 .player {
-    margin-bottom: 20px;
     position: absolute;
-    width: $player-width;
+
+    .active {
+        right: 0;
+        top: 0;
+    }
 
     .dealer {
         left: 0;
-        position: absolute;
         top: 0;
     }
 }
@@ -15,24 +15,26 @@ $player-width: 250px;
 .player-0 {
     bottom: 0;
     left: 50%;
-    margin-left: -($player-width / 2);
+    transform: translate(-50%, 0);
 }
 
 .player-1 {
     top: 50%;
-    transform: rotate(-90deg) translate(29%, -45%);
+    transform: rotate(-90deg) translate(-50%, 0);
+    transform-origin: 0% 0%;
 }
 
 .player-2 {
     top: 0;
     left: 50%;
-    margin-left: -($player-width / 2);
+    transform: translate(-50%, 0);
 }
 
 .player-3 {
     right: 0;
     top: 50%;
-    transform: rotate(90deg) translate(-25%, -45%);
+    transform: rotate(90deg) translate(50%, 0);
+    transform-origin: 100% 0%;
 }
 
 .player-id {
