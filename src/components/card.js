@@ -28,7 +28,7 @@ export const Card = ({card, inHand}) => (state) => {
   const rank = getRank(card);
   const suit = getSuit(card);
   const unicodeSuit = getUnicodeSuit(card);
-  const valid = validPlay(card, state);
+  const valid = inHand ? validPlay(card, state) : false;
 
   return (
     inHand ?
