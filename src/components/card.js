@@ -14,12 +14,14 @@ function playCard(card) {
   });
 }
 
-export const Card = ({card}) => (state) => {
+export const Card = ({card, inHand}) => (state) => {
   if (card === 'back') {
     return (
-      <li>
+      inHand ?
+        <li>
+          <div class='card back'></div>
+        </li> :
         <div class='card back'></div>
-      </li>
     );
   }
 
@@ -29,20 +31,26 @@ export const Card = ({card}) => (state) => {
   const valid = validPlay(card, state);
 
   return (
-    <li>
-      {valid && state.status === 'playing' ?
-        <a
-          class={`card rank-${rank} ${suit}`}
-          onclick={() => playCard(card)}
-        >
-          <span class='rank'>{rank}</span>
-          <span class='suit'>{unicodeSuit}</span>
-        </a> :
-        <div class={`card rank-${rank} ${suit}`}>
-          <span class='rank'>{rank}</span>
-          <span class='suit'>{unicodeSuit}</span>
-        </div>
-      }
-    </li>
+    inHand ?
+      <li>
+        {valid && state.status === 'playing' ?
+          <a
+            class={`card rank-${rank} ${suit}`}
+            onclick={() => playCard(card)}
+          >
+            <span class='rank'>{rank}</span>
+            <span class='suit'>{unicodeSuit}</span>
+          </a> :
+          <div class={`card rank-${rank} ${suit}`}>
+            <span class='rank'>{rank}</span>
+            <span class='suit'>{unicodeSuit}</span>
+          </div>
+        }
+      </li> :
+      <div class={`card rank-${rank} ${suit}`}>
+        <span class='rank'>{rank}</span>
+        <span class='suit'>{unicodeSuit}</span>
+      </div>
+
   );
 };
