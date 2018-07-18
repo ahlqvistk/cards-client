@@ -5,8 +5,8 @@ function placeBid(bid) {
   return socket.emit('action', {type: 'place bid', payload: {bid}});
 }
 
-export const Bid = ({disabled, max}) => (
-  <div class='bid'>
+export const Bidding = ({disabled, max}) => (
+  <div class='bidding'>
     {[...Array(max + 1).keys()].map((n) => (
       <button
         disabled={disabled.includes(n)}

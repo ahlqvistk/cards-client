@@ -2,7 +2,7 @@ import {h} from 'hyperapp';
 import {socket} from '../app';
 import invalidBids from '../../../cards-common/src/invalid-bids';
 
-import {Bid} from './bid';
+import {Bidding} from './bidding';
 import {Player} from './player';
 import {Trump} from './trump';
 
@@ -29,7 +29,7 @@ export const Table = () => (state) => (
       <Trump card={state.trump} /> : null
     }
     {state.status === 'bidding' && state.activePlayer === state.id ?
-      <Bid
+      <Bidding
         disabled={invalidBids(state)}
         max={state.players[0].cards.length}
       /> : null
