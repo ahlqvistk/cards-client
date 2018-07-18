@@ -13,10 +13,11 @@ export const Player = ({
   index,
   playedCard,
   tricks,
+  winner,
 }) => (
   index === 0 ?
     <div class={'player player-' + index}>
-      <PlayedCard card={playedCard} />
+      <PlayedCard card={playedCard} winner={winner} />
       <Markers
         active={active}
         bid={bid}
@@ -37,6 +38,6 @@ export const Player = ({
         show={cards.length > 0}
         tricks={tricks}
       />
-      <PlayedCard card={playedCard} />
+      <PlayedCard card={playedCard} winner={winner} />
     </div>
 );

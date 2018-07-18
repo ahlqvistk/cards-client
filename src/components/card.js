@@ -14,7 +14,7 @@ function playCard(card) {
   });
 }
 
-export const Card = ({card, inHand}) => (state) => {
+export const Card = ({card, inHand, winner}) => (state) => {
   if (card === 'back') {
     return (
       inHand ?
@@ -47,7 +47,9 @@ export const Card = ({card, inHand}) => (state) => {
           </div>
         }
       </li> :
-      <div class={`card rank-${rank} ${suit}`}>
+      <div
+        class={`card rank-${rank} ${suit}` + (winner ? ' winning-card' : '')}
+      >
         <span class='rank'>{rank}</span>
         <span class='suit'>{unicodeSuit}</span>
       </div>
