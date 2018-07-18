@@ -24,6 +24,7 @@ export const Table = () => (state) => (
         playedCard={
           player.hasOwnProperty('playedCard') ? player.playedCard : ''
         }
+        tricks={player.tricks ? player.tricks : '-'}
       />
     ))}
     {state.trump ?

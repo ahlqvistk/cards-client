@@ -4,7 +4,16 @@ import {Hand} from './hand';
 import {Markers} from './markers';
 import {PlayedCard} from './played-card';
 
-export const Player = ({active, bid, cards, dealer, id, index, playedCard}) => (
+export const Player = ({
+  active,
+  bid,
+  cards,
+  dealer,
+  id,
+  index,
+  playedCard,
+  tricks,
+}) => (
   index === 0 ?
     <div class={'player player-' + index}>
       <PlayedCard card={playedCard} />
@@ -13,6 +22,7 @@ export const Player = ({active, bid, cards, dealer, id, index, playedCard}) => (
         bid={bid}
         dealer={dealer}
         show={cards.length > 0}
+        tricks={tricks}
       />
       <Hand cards={cards} />
       <div class='player-id'>{id}</div>
@@ -25,6 +35,7 @@ export const Player = ({active, bid, cards, dealer, id, index, playedCard}) => (
         bid={bid}
         dealer={dealer}
         show={cards.length > 0}
+        tricks={tricks}
       />
       <PlayedCard card={playedCard} />
     </div>
