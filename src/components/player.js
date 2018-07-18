@@ -1,17 +1,13 @@
 import {h} from 'hyperapp';
 
-import {Card} from './card';
 import {Hand} from './hand';
 import {Markers} from './markers';
+import {PlayedCard} from './played-card';
 
 export const Player = ({active, bid, cards, dealer, id, index, playedCard}) => (
   index === 0 ?
     <div class={'player player-' + index}>
-      {playedCard ?
-        <div class='playingCards simpleCards played-card'>
-          <Card card={playedCard} />
-        </div> : null
-      }
+      <PlayedCard card={playedCard} />
       <Markers
         active={active}
         bid={bid}
@@ -30,10 +26,6 @@ export const Player = ({active, bid, cards, dealer, id, index, playedCard}) => (
         dealer={dealer}
         show={cards.length > 0}
       />
-      {playedCard ?
-        <div class='playingCards simpleCards played-card'>
-          <Card card={playedCard} />
-        </div> : null
-      }
+      <PlayedCard card={playedCard} />
     </div>
 );
