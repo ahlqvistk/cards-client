@@ -12,6 +12,7 @@ export const Player = ({
   id,
   index,
   playedCard,
+  status,
   tricks,
   winner,
 }) => (
@@ -22,7 +23,10 @@ export const Player = ({
         active={active}
         bid={bid}
         dealer={dealer}
-        show={cards.length > 0}
+        show={
+          status !== 'waiting for players' &&
+          status !== 'waiting to start game'
+        }
         tricks={tricks}
       />
       <Hand cards={cards} />
@@ -35,7 +39,10 @@ export const Player = ({
         active={active}
         bid={bid}
         dealer={dealer}
-        show={cards.length > 0}
+        show={
+          status !== 'waiting for players' &&
+          status !== 'waiting to start game'
+        }
         tricks={tricks}
       />
       <PlayedCard card={playedCard} winner={winner} />
