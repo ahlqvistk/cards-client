@@ -4,6 +4,7 @@ import invalidBids from '../../../cards-common/src/invalid-bids';
 
 import {Bidding} from './bidding';
 import {Player} from './player';
+import {Scoreboard} from './scoreboard';
 import {Trump} from './trump';
 
 function startGame() {
@@ -41,6 +42,9 @@ export const Table = () => (state) => (
     {state.creator === state.id && state.status === 'waiting to start game' ?
       <button class='start-button' onclick={startGame}>Start</button> :
       null
+    }
+    {state.status === 'showing scoreboard' ?
+      <Scoreboard players={state.players} /> : null
     }
   </div>
 );

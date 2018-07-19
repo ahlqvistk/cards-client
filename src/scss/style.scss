@@ -3,6 +3,7 @@
 @import 'markers';
 @import 'played-card';
 @import 'player';
+@import 'scoreboard';
 @import 'table';
 @import 'trump';
 
@@ -31,4 +32,5 @@ body {
     left: 50%;
     position: absolute;
     top: 50%;
+    transform: translate(-50%, -50%);
 }
