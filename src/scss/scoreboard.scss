@@ -6,15 +6,18 @@
      0px 20px 20px rgba(0,0,0,0.05),
      0px 30px 20px rgba(0,0,0,0.05);
   left: 50%;
-  max-width: 100%;
   position: absolute;
+  table-layout: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: calc(100% - 2em);
   z-index: 10;
 
   th {
     background-color: #00cccc;
     color: #fff;
+    width: 100%;
+    word-wrap: break-word;
   }
 
   td {
@@ -24,7 +27,17 @@
 
   th, td {
     border: 1px solid #eee;
-    padding: 12px 35px;
+    padding: 0.5em;
     border-collapse: collapse;
+
+    &:first-child {
+      width: 6em;
+    }
+  }
+
+  .scoreboard-total {
+    th, td {
+      color: #000;
+    }
   }
 }

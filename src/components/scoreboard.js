@@ -8,7 +8,7 @@ export const Scoreboard = ({players}) => {
     <table class='scoreboard'>
       <thead>
         <tr>
-          <th>#</th>
+          <th class='scoreboard-round'></th>
           {scoreboard.players.map((player) => (
             <th>{player}</th>
           ))}
@@ -17,12 +17,18 @@ export const Scoreboard = ({players}) => {
       <tbody>
         {scoreboard.points.map((row, i) => (
           <tr>
-            <td>{i + 1}</td>
+            <td>Round {i + 1}</td>
             {row.map((point) => (
               <td>{point}</td>
             ))}
           </tr>
         ))}
+        <tr class='scoreboard-total'>
+          <td>Total</td>
+          {scoreboard.totals.map((total) => (
+            <td>{total}</td>
+          ))}
+        </tr>
       </tbody>
     </table>
   );
