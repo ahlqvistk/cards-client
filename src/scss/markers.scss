@@ -1,4 +1,13 @@
 .markers {
+  color: #fff;
   display: flex;
   justify-content: space-between;
+
+  .active {
+    color: gold;
+  }
+
+  .dealer {
+    color: silver;
+  }
 }

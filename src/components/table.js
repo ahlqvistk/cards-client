@@ -25,6 +25,10 @@ export const Table = () => (state) => (
         playedCard={
           player.hasOwnProperty('playedCard') ? player.playedCard : ''
         }
+        points={
+          player.hasOwnProperty('points') ?
+            player.points.reduce((acc, cur) => acc + cur) : 0
+        }
         status={state.status}
         tricks={player.tricks ? player.tricks : 0}
         winner={player.socket.id === state.trickWinner}

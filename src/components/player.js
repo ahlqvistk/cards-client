@@ -12,6 +12,7 @@ export const Player = ({
   id,
   index,
   playedCard,
+  points,
   status,
   tricks,
   winner,
@@ -23,6 +24,7 @@ export const Player = ({
         active={active}
         bid={bid}
         dealer={dealer}
+        points={points}
         show={
           status !== 'waiting for players' &&
           status !== 'waiting to start game'
@@ -39,6 +41,7 @@ export const Player = ({
         active={active}
         bid={bid}
         dealer={dealer}
+        points={points}
         show={
           status !== 'waiting for players' &&
           status !== 'waiting to start game'
