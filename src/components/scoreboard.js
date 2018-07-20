@@ -1,5 +1,5 @@
 import {h} from 'hyperapp';
-import getScoreboard from '../../../cards-common/src/get-scoreboard';
+import getScoreboard from 'cards-common';
 
 export const Scoreboard = ({players}) => {
   const scoreboard = getScoreboard(players);

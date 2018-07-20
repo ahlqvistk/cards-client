@@ -4,8 +4,8 @@ import {
   getRank,
   getSuit,
   getUnicodeSuit,
-} from '../../../cards-common/src/get-rank-suit';
-import validPlay from '../../../cards-common/src/valid-play';
+  validPlay,
+} from 'cards-common';
 
 function playCard(card) {
   return socket.emit('action', {

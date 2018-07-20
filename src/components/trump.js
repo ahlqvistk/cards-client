@@ -3,7 +3,7 @@ import {
   getRank,
   getSuit,
   getUnicodeSuit,
-} from '../../../cards-common/src/get-rank-suit';
+} from 'cards-common';
 
 export const Trump = ({card}) => {
   const rank = getRank(card);
