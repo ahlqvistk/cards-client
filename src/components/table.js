@@ -1,6 +1,6 @@
 import {h} from 'hyperapp';
 import {socket} from '../app';
-import invalidBids from 'cards-common';
+import {invalidBids} from 'cards-common';
 
 import {Bidding} from './bidding';
 import {Player} from './player';
