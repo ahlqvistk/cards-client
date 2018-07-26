@@ -9,11 +9,13 @@ import './scss/style.scss';
 import {Table} from './components/table';
 
 const state = {
+  location: '',
   table: {},
 };
 
 const actions = {
   getState: () => (state) => state,
+  setLocation: (location) => (state) => ({location}),
   setTable: (table) => (state) => ({table}),
 };
 
@@ -26,7 +28,10 @@ const view = (state) => (
 const main = app(state, actions, view, document.body);
 const getState = main.getState;
 
-const socket = io(window.location.pathname);
+const location = window.location.pathname;
+const socket = io(location);
+main.setLocation(location);
+
 const table$ = fromEvent('table', socket);
 
 table$.debounce(100).observe((table) => {
