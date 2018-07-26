@@ -15,6 +15,7 @@ const state = {
 
 const actions = {
   getState: () => (state) => state,
+  setLobby: (lobby) => (state) => ({lobby}),
   setLocation: (location) => (state) => ({location}),
   setTable: (table) => (state) => ({table}),
 };
@@ -32,7 +33,13 @@ const location = window.location.pathname;
 const socket = io(location);
 main.setLocation(location);
 
+const lobby$ = fromEvent('lobby', socket);
 const table$ = fromEvent('table', socket);
+
+lobby$.debounce(100).observe((lobby) => {
+  console.log(lobby);
+  main.setLobby(lobby);
+});
 
 table$.debounce(100).observe((table) => {
   console.log(table);
