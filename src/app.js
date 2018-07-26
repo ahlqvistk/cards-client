@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-/* global console, document */
+/* global console, document, window */
 import {h, app} from 'hyperapp';
 import {fromEvent} from 'most';
 import io from 'socket.io-client';
@@ -24,7 +24,7 @@ const view = (state) => (
 const main = app(state, actions, view, document.body);
 const getState = main.getState;
 
-const socket = io();
+const socket = io(window.location.pathname);
 const state$ = fromEvent('state', socket);
 
 state$.debounce(100).observe((state) => {
