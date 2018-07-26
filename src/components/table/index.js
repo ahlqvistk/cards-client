@@ -11,14 +11,14 @@ function startGame() {
   return socket.emit('action', {type: 'start game'});
 }
 
-export const Table = ({game}) => (
+export const Table = ({table}) => (
   <div class='table'>
-    {game.players.map((player, index) => (
+    {table.players.map((player, index) => (
       <Player
-        active={game.activePlayer === player.socket.id}
+        active={table.activePlayer === player.socket.id}
         bid={player.bid >= 0 ? player.bid : '-'}
         cards={player.hasOwnProperty('cards') ? player.cards : []}
-        dealer={game.dealer === player.socket.id}
+        dealer={table.dealer === player.socket.id}
         id={player.socket.id}
         index={index}
         key={player.socket.id}
@@ -29,26 +29,26 @@ export const Table = ({game}) => (
           player.hasOwnProperty('points') ?
             player.points.reduce((acc, cur) => acc + cur) : 0
         }
-        status={game.status}
+        status={table.status}
         tricks={player.tricks ? player.tricks : 0}
-        winner={player.socket.id === game.trickWinner}
+        winner={player.socket.id === table.trickWinner}
       />
     ))}
-    {game.trump ?
-      <Trump card={game.trump} /> : null
+    {table.trump ?
+      <Trump card={table.trump} /> : null
     }
-    {game.status === 'bidding' && game.activePlayer === game.id ?
+    {table.status === 'bidding' && table.activePlayer === table.id ?
       <Bidding
-        disabled={invalidBids(game)}
-        max={game.players[0].cards.length}
+        disabled={invalidBids(table)}
+        max={table.players[0].cards.length}
       /> : null
     }
-    {game.creator === game.id && game.status === 'waiting to start game' ?
+    {table.creator === table.id && table.status === 'waiting to start game' ?
       <button class='start-button' onclick={startGame}>Start</button> :
       null
     }
-    {game.status === 'showing scoreboard' ?
-      <Scoreboard players={game.players} /> : null
+    {table.status === 'showing scoreboard' ?
+      <Scoreboard players={table.players} /> : null
     }
   </div>
 );

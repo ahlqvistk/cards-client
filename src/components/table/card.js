@@ -14,7 +14,7 @@ function playCard(card) {
   });
 }
 
-export const Card = ({card, inHand, winner}) => ({game}) => {
+export const Card = ({card, inHand, winner}) => ({table}) => {
   if (card === 'back') {
     return (
       inHand ?
@@ -28,12 +28,12 @@ export const Card = ({card, inHand, winner}) => ({game}) => {
   const rank = getRank(card);
   const suit = getSuit(card);
   const unicodeSuit = getUnicodeSuit(card);
-  const valid = inHand ? validPlay(card, game) : false;
+  const valid = inHand ? validPlay(card, table) : false;
 
   return (
     inHand ?
       <li>
-        {valid && game.status === 'playing' ?
+        {valid && table.status === 'playing' ?
           <a
             class={`card rank-${rank} ${suit}`}
             onclick={() => playCard(card)}
