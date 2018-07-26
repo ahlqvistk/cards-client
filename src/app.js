@@ -18,10 +18,9 @@ const actions = {
 };
 
 const view = (state) => (
-  state.table.hasOwnProperty('players') ?
-    <div class='app'>
-      <Table table={state.table} />
-    </div> : null
+  <div class='app'>
+    <Table table={state.table} />
+  </div>
 );
 
 const main = app(state, actions, view, document.body);
