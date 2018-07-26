@@ -1,5 +1,5 @@
 import {h} from 'hyperapp';
-import {socket} from '../app';
+import {socket} from '../../app';
 import {
   getRank,
   getSuit,
@@ -14,7 +14,7 @@ function playCard(card) {
   });
 }
 
-export const Card = ({card, inHand, winner}) => (state) => {
+export const Card = ({card, inHand, winner}) => ({game}) => {
   if (card === 'back') {
     return (
       inHand ?
@@ -28,12 +28,12 @@ export const Card = ({card, inHand, winner}) => (state) => {
   const rank = getRank(card);
   const suit = getSuit(card);
   const unicodeSuit = getUnicodeSuit(card);
-  const valid = inHand ? validPlay(card, state) : false;
+  const valid = inHand ? validPlay(card, game) : false;
 
   return (
     inHand ?
       <li>
-        {valid && state.status === 'playing' ?
+        {valid && game.status === 'playing' ?
           <a
             class={`card rank-${rank} ${suit}`}
             onclick={() => playCard(card)}

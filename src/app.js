@@ -8,16 +8,19 @@ import './scss/style.scss';
 
 import {Table} from './components/table';
 
-const state = {};
+const state = {
+  game: {},
+};
+
 const actions = {
   getState: () => (state) => state,
-  setState: (state) => (state),
+  setGame: (game) => (state) => ({game}),
 };
 
 const view = (state) => (
-  state.hasOwnProperty('players') ?
+  state.game.hasOwnProperty('players') ?
     <div class='app'>
-      <Table />
+      <Table game={state.game} />
     </div> : null
 );
 
@@ -25,11 +28,11 @@ const main = app(state, actions, view, document.body);
 const getState = main.getState;
 
 const socket = io(window.location.pathname);
-const state$ = fromEvent('state', socket);
+const gameState$ = fromEvent('state', socket);
 
-state$.debounce(100).observe((state) => {
-  console.log(state);
-  main.setState(state);
+gameState$.debounce(100).observe((game) => {
+  console.log(game);
+  main.setGame(game);
 });
 
 export {

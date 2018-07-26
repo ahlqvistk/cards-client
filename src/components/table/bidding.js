@@ -1,5 +1,5 @@
 import {h} from 'hyperapp';
-import {socket} from '../app';
+import {socket} from '../../app';
 
 function placeBid(bid) {
   return socket.emit('action', {type: 'place bid', payload: {bid}});

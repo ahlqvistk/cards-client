@@ -1,5 +1,5 @@
 import {h} from 'hyperapp';
-import {socket} from '../app';
+import {socket} from '../../app';
 import {invalidBids} from 'cards-common';
 
 import {Bidding} from './bidding';
@@ -11,14 +11,14 @@ function startGame() {
   return socket.emit('action', {type: 'start game'});
 }
 
-export const Table = () => (state) => (
+export const Table = ({game}) => (
   <div class='table'>
-    {state.players.map((player, index) => (
+    {game.players.map((player, index) => (
       <Player
-        active={state.activePlayer === player.socket.id}
+        active={game.activePlayer === player.socket.id}
         bid={player.bid >= 0 ? player.bid : '-'}
         cards={player.hasOwnProperty('cards') ? player.cards : []}
-        dealer={state.dealer === player.socket.id}
+        dealer={game.dealer === player.socket.id}
         id={player.socket.id}
         index={index}
         key={player.socket.id}
@@ -29,26 +29,26 @@ export const Table = () => (state) => (
           player.hasOwnProperty('points') ?
             player.points.reduce((acc, cur) => acc + cur) : 0
         }
-        status={state.status}
+        status={game.status}
         tricks={player.tricks ? player.tricks : 0}
-        winner={player.socket.id === state.trickWinner}
+        winner={player.socket.id === game.trickWinner}
       />
     ))}
-    {state.trump ?
-      <Trump card={state.trump} /> : null
+    {game.trump ?
+      <Trump card={game.trump} /> : null
     }
-    {state.status === 'bidding' && state.activePlayer === state.id ?
+    {game.status === 'bidding' && game.activePlayer === game.id ?
       <Bidding
-        disabled={invalidBids(state)}
-        max={state.players[0].cards.length}
+        disabled={invalidBids(game)}
+        max={game.players[0].cards.length}
       /> : null
     }
-    {state.creator === state.id && state.status === 'waiting to start game' ?
+    {game.creator === game.id && game.status === 'waiting to start game' ?
       <button class='start-button' onclick={startGame}>Start</button> :
       null
     }
-    {state.status === 'showing scoreboard' ?
-      <Scoreboard players={state.players} /> : null
+    {game.status === 'showing scoreboard' ?
+      <Scoreboard players={game.players} /> : null
     }
   </div>
 );
