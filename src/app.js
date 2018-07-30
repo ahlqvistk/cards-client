@@ -32,7 +32,7 @@ const actions = {
 const view = (state) => (
   <div class='app'>
     {state.location === '/' ?
-      <Lobby lobby={state.lobby} /> :
+      <Lobby lobby={state.lobby} setLocation={main.setLocation} /> :
       <Table table={state.table} />
     }
   </div>

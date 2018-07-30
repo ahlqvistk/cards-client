@@ -2,10 +2,10 @@ import {h} from 'hyperapp';
 
 import {Tables} from './tables';
 
-export function Lobby({lobby}) {
+export function Lobby({lobby, setLocation}) {
   return (
     <div class='lobby'>
-      <Tables tables={lobby.tables} />
+      <Tables setLocation={setLocation} tables={lobby.tables} />
     </div>
   );
 }
