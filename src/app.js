@@ -14,6 +14,7 @@ const state = {
     tables: [],
   },
   location: '',
+  showCreateTableModal: false,
   table: {},
 };
 
@@ -27,13 +28,23 @@ const actions = {
     return {location};
   },
   setTable: (table) => (state) => ({table}),
+  toggleCreateTableModal: () => (state) => ({
+    showCreateTableModal: !state.showCreateTableModal,
+  }),
 };
 
 const view = (state) => (
   <div class='app'>
     {state.location === '/' ?
-      <Lobby lobby={state.lobby} setLocation={main.setLocation} /> :
+      <Lobby
+        lobby={state.lobby}
+        setLocation={main.setLocation}
+        toggleCreateTableModal={main.toggleCreateTableModal}
+      /> :
       <Table table={state.table} />
+    }
+    {state.showCreateTableModal ?
+      <div>Create Table</div> : null
     }
   </div>
 );

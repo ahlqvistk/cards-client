@@ -9,15 +9,17 @@ export function Tables({setLocation, tables}) {
   return (
     <div class='tables'>
       <select id='table-select' size='10'>
-        {
-          tables.length ?
-            tables.map((table) => (
-              <option value={table.name}>{table.name}</option>
-            )) :
-            <option>No available tables</option>
+        {tables.length ?
+          tables.map((table) => (
+            <option value={table.name}>{table.name}</option>
+          )) :
+          <option>No available tables</option>
         }
       </select>
-      <button onclick={() => setLocation(getLocation())}>Join table</button>
+      {tables.length ?
+        <button onclick={() => setLocation(getLocation())}>Join table</button> :
+        null
+      }
     </div>
   );
 }
