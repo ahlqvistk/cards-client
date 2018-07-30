@@ -6,9 +6,13 @@ import io from 'socket.io-client';
 
 import './scss/style.scss';
 
+import {Lobby} from './components/lobby';
 import {Table} from './components/table';
 
 const state = {
+  lobby: {
+    tables: [],
+  },
   location: '',
   table: {},
 };
@@ -16,13 +20,21 @@ const state = {
 const actions = {
   getState: () => (state) => state,
   setLobby: (lobby) => (state) => ({lobby}),
-  setLocation: (location) => (state) => ({location}),
+  setLocation: (location) => (state) => {
+    if (location !== window.location.pathname) {
+      window.location = location;
+    }
+    return {location};
+  },
   setTable: (table) => (state) => ({table}),
 };
 
 const view = (state) => (
   <div class='app'>
-    <Table table={state.table} />
+    {state.location === '/' ?
+      <Lobby lobby={state.lobby} /> :
+      <Table table={state.table} />
+    }
   </div>
 );
 
