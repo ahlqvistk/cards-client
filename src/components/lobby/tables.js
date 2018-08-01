@@ -11,7 +11,7 @@ export function Tables({setLocation, tables}) {
       <select id='table-select' size='10'>
         {tables.length ?
           tables.map((table) => (
-            <option value={table.name}>{table.name}</option>
+            <option value={table.id}>{table.id}</option>
           )) :
           <option>No available tables</option>
         }
