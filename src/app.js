@@ -7,6 +7,7 @@ import io from 'socket.io-client';
 import './scss/style.scss';
 
 import {Lobby} from './components/lobby';
+import {CreateTable} from './components/lobby/create-table';
 import {Table} from './components/table';
 
 const state = {
@@ -43,8 +44,8 @@ const view = (state) => (
       /> :
       <Table table={state.table} />
     }
-    {state.showCreateTableModal ?
-      <div>Create Table</div> : null
+    {state.location === '/' && state.showCreateTableModal ?
+      <CreateTable /> : null
     }
   </div>
 );
