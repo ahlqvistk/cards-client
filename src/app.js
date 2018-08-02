@@ -8,9 +8,11 @@ import './scss/style.scss';
 
 import {Lobby} from './components/lobby';
 import {CreateTable} from './components/lobby/create-table';
+import {EnterPassword} from './components/enter-password';
 import {Table} from './components/table';
 
 const state = {
+  hash: '',
   lobby: {
     tables: [],
   },
@@ -21,6 +23,7 @@ const state = {
 
 const actions = {
   getState: () => (state) => state,
+  setHash: (hash) => (state) => ({hash}),
   setLobby: (lobby) => (state) => ({lobby}),
   setLocation: (location) => (state) => {
     if (location !== window.location.pathname) {
@@ -36,16 +39,23 @@ const actions = {
 
 const view = (state) => (
   <div class='app'>
-    {state.location === '/' ?
+    {state.location === '/' &&
       <Lobby
         lobby={state.lobby}
         setLocation={main.setLocation}
         toggleCreateTableModal={main.toggleCreateTableModal}
-      /> :
-      <Table table={state.table} />
+      />
     }
-    {state.location === '/' && state.showCreateTableModal ?
-      <CreateTable /> : null
+
+    {state.location === '/' && state.showCreateTableModal &&
+      <CreateTable />
+    }
+
+    {state.location.startsWith('/table/') &&
+      (state.table.hash === state.hash ?
+        <Table table={state.table} /> :
+        <EnterPassword setHash={main.setHash} />
+      )
     }
   </div>
 );
