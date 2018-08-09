@@ -52,7 +52,7 @@ const view = (state) => (
     }
 
     {state.location.startsWith('/table/') &&
-      (state.table.hash === state.hash ?
+      (state.table.hash === state.hash || state.table.type === 'public' ?
         <Table table={state.table} /> :
         <EnterPassword setHash={main.setHash} />
       )

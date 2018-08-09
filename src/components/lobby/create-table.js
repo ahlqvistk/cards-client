@@ -18,6 +18,7 @@ export function CreateTable() {
         id='public'
         name='type'
         onchange={() => togglePassword()}
+        value='public'
         checked
       />
 
@@ -26,6 +27,7 @@ export function CreateTable() {
         type='radio'
         id='private'
         name='type'
+        value='private'
         onchange={() => togglePassword()}
       />
 
