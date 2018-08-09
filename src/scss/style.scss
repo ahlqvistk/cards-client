@@ -1,11 +1,4 @@
-@import 'bidding';
-@import 'cards';
-@import 'markers';
-@import 'played-card';
-@import 'player';
-@import 'scoreboard';
-@import 'table';
-@import 'trump';
+@import 'table/style';
 
 $felt-green: #076324;
 
@@ -26,11 +19,4 @@ body {
     background-color: $felt-green;
     height: 100%;
     width: 100%;
-}
-
-.start-button {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }
