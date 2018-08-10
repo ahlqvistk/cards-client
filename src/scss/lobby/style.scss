@@ -30,10 +30,22 @@
 .create-table-form {
   background-color: #fff;
   left: 50%;
-  padding: 2em;
+  height: 10em;
   position: fixed;
+  text-align: left;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 20em;
+  
+  div {
+    margin: 1em;
+  }
+
+  button {
+    bottom: 1em;
+    left: 1em;
+    position: absolute;
+  }
 }
 
 .create-table-modal-back {
