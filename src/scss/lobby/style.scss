@@ -1,0 +1,15 @@
+.lobby {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.tables {
+  select, button {
+    display: block;
+    margin: 0 auto;
+    width: 20em;
+  }
+}

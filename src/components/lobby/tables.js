@@ -1,7 +1,7 @@
 /* global document */
 import {h} from 'hyperapp';
 
-export function Tables({setLocation, tables}) {
+export function Tables({setLocation, tables, toggleCreateTableModal}) {
   function getLocation() {
     return 'table/' + document.getElementById('table-select').value;
   }
@@ -20,6 +20,7 @@ export function Tables({setLocation, tables}) {
         <button onclick={() => setLocation(getLocation())}>Join table</button> :
         null
       }
+      <button onclick={() => toggleCreateTableModal()}>Create table</button>
     </div>
   );
 }
