@@ -18,7 +18,7 @@ function handlePass(e, setHash) {
 
 export function EnterPassword({setHash}) {
   return (
-    <form onsubmit={(e) => handlePass(e, setHash)}>
+    <form class='enter-password' onsubmit={(e) => handlePass(e, setHash)}>
       <input id='password' type='password' />
       <button>Enter</button>
     </form>
