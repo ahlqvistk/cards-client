@@ -7,7 +7,6 @@ import io from 'socket.io-client';
 import './scss/style.scss';
 
 import {Lobby} from './components/lobby';
-import {CreateTable} from './components/lobby/create-table';
 import {EnterPassword} from './components/enter-password';
 import {Table} from './components/table';
 
@@ -46,10 +45,6 @@ const view = (state) => (
         showCreateTableModal={state.showCreateTableModal}
         toggleCreateTableModal={main.toggleCreateTableModal}
       />
-    }
-
-    {state.location === '/' && state.showCreateTableModal &&
-      <CreateTable />
     }
 
     {state.location.startsWith('/table/') &&

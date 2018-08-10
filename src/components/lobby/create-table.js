@@ -6,10 +6,12 @@ function togglePassword() {
   passwordElement.hidden = !passwordElement.hidden;
 }
 
-export function CreateTable() {
+export function CreateTable({toggleCreateTableModal}) {
   return (
     <div class='create-table'>
-      <div class='create-table-modal-back'></div>
+      <div
+        class='create-table-modal-back'
+        onclick={() => toggleCreateTableModal()}></div>
       <form class='create-table-form' action='/table' method='post'>
         <label for='id'>Table ID:</label>
         <input type='text' id='id' name='id' />

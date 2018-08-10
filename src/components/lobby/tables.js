@@ -1,13 +1,18 @@
 /* global document */
 import {h} from 'hyperapp';
 
-export function Tables({setLocation, tables, toggleCreateTableModal}) {
+export function Tables({
+  setLocation,
+  showCreateTableModal,
+  tables,
+  toggleCreateTableModal,
+}) {
   function getLocation() {
     return 'table/' + document.getElementById('table-select').value;
   }
 
   return (
-    <div class='tables'>
+    <div class={(showCreateTableModal ? 'modal-open ' : '') + 'tables'}>
       <select id='table-select' size='10'>
         {tables.length ?
           tables.map((table) => (

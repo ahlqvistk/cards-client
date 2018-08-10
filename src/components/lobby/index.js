@@ -1,5 +1,6 @@
 import {h} from 'hyperapp';
 
+import {CreateTable} from './create-table';
 import {Tables} from './tables';
 
 export function Lobby({
@@ -9,12 +10,17 @@ export function Lobby({
   toggleCreateTableModal,
 }) {
   return (
-    <div class={(showCreateTableModal ? 'modal-open ' : '') + 'lobby'}>
+    <div class='lobby'>
       <Tables
         setLocation={setLocation}
+        showCreateTableModal={showCreateTableModal}
         tables={lobby.tables}
         toggleCreateTableModal={toggleCreateTableModal}
       />
+      {
+        showCreateTableModal &&
+        <CreateTable toggleCreateTableModal={toggleCreateTableModal}/>
+      }
     </div>
   );
 }
