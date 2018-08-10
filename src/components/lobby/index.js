@@ -2,9 +2,14 @@ import {h} from 'hyperapp';
 
 import {Tables} from './tables';
 
-export function Lobby({lobby, setLocation, toggleCreateTableModal}) {
+export function Lobby({
+  lobby,
+  setLocation,
+  showCreateTableModal,
+  toggleCreateTableModal,
+}) {
   return (
-    <div class='lobby'>
+    <div class={(showCreateTableModal ? 'modal-open ' : '') + 'lobby'}>
       <Tables
         setLocation={setLocation}
         tables={lobby.tables}

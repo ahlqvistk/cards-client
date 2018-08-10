@@ -43,6 +43,7 @@ const view = (state) => (
       <Lobby
         lobby={state.lobby}
         setLocation={main.setLocation}
+        showCreateTableModal={state.showCreateTableModal}
         toggleCreateTableModal={main.toggleCreateTableModal}
       />
     }

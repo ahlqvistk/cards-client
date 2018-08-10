@@ -1,9 +1,13 @@
 .lobby {
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
   text-align: center;
-  height: 100%;
+}
+
+.modal-open {
+  filter: blur(5px);
 }
 
 .tables {
@@ -12,4 +16,30 @@
     margin: 0 auto;
     width: 20em;
   }
+}
+
+.create-table {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.create-table-form {
+  background-color: #fff;
+  left: 50%;
+  padding: 2em;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.create-table-modal-back {
+  background-color: #000;
+  height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  width: 100%;
 }
