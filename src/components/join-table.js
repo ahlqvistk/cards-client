@@ -2,24 +2,30 @@
 import {h} from 'hyperapp';
 import {socket} from '../app';
 
-function enterPassword(password) {
+function joinTable(name, hash) {
   return socket.emit('action', {
-    type: 'enter password',
-    payload: {hash: password},
+    type: 'join table',
+    payload: {
+      hash,
+      name,
+    },
   });
 }
 
-function handlePass(e, setHash) {
+function handleJoin(e, setHash) {
   e.preventDefault();
+  const name = document.getElementById('name').value;
   const password = document.getElementById('password').value;
-  setHash(password);
-  enterPassword(password);
+  const hash = password;
+  setHash(hash);
+  joinTable(name, hash);
 }
 
 export function JoinTable({setHash}) {
   return (
-    <form class='join-table' onsubmit={(e) => handlePass(e, setHash)}>
-      <input id='password' type='password' />
+    <form class='join-table' onsubmit={(e) => handleJoin(e, setHash)}>
+      <input id='name' type='name' placeholder='name' />
+      <input id='password' type='password' placeholder='password' />
       <button>Enter</button>
     </form>
   );
