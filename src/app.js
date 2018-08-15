@@ -7,7 +7,7 @@ import io from 'socket.io-client';
 import './scss/style.scss';
 
 import {Lobby} from './components/lobby';
-import {EnterPassword} from './components/enter-password';
+import {JoinTable} from './components/join-table';
 import {Table} from './components/table';
 
 const state = {
@@ -50,7 +50,7 @@ const view = (state) => (
     {state.location.startsWith('/table/') &&
       (state.table.hash === state.hash || state.table.type === 'public' ?
         <Table table={state.table} /> :
-        <EnterPassword setHash={main.setHash} />
+        <JoinTable setHash={main.setHash} />
       )
     }
   </div>

@@ -16,9 +16,9 @@ function handlePass(e, setHash) {
   enterPassword(password);
 }
 
-export function EnterPassword({setHash}) {
+export function JoinTable({setHash}) {
   return (
-    <form class='enter-password' onsubmit={(e) => handlePass(e, setHash)}>
+    <form class='join-table' onsubmit={(e) => handlePass(e, setHash)}>
       <input id='password' type='password' />
       <button>Enter</button>
     </form>
