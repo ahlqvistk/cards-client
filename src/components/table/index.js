@@ -20,9 +20,9 @@ export const Table = ({table}) => {
           bid={player.bid >= 0 ? player.bid : '-'}
           cards={player.hasOwnProperty('cards') ? player.cards : []}
           dealer={table.dealer === player.socket.id}
-          id={player.socket.id}
           index={index}
           key={player.socket.id}
+          name={player.name}
           playedCard={
             player.hasOwnProperty('playedCard') ? player.playedCard : ''
           }

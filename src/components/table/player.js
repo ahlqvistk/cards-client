@@ -9,8 +9,8 @@ export const Player = ({
   bid,
   cards,
   dealer,
-  id,
   index,
+  name,
   playedCard,
   points,
   status,
@@ -32,10 +32,10 @@ export const Player = ({
         tricks={tricks}
       />
       <Hand cards={cards} />
-      <div class='player-id'>{id}</div>
+      <div class='player-name'>{name}</div>
     </div> :
     <div class={'player player-' + index}>
-      <div class='player-id'>{id}</div>
+      <div class='player-name'>{name}</div>
       <Hand cards={cards} />
       <Markers
         active={active}
