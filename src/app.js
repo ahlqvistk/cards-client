@@ -11,7 +11,7 @@ import {JoinTable} from './components/join-table';
 import {Table} from './components/table';
 
 const state = {
-  hash: '',
+  hash: null,
   lobby: {
     tables: [],
   },
@@ -48,7 +48,7 @@ const view = (state) => (
     }
 
     {state.location.startsWith('/table/') &&
-      (state.table.hash === state.hash || state.table.type === 'public' ?
+      (state.table.hash === state.hash ?
         <Table table={state.table} /> :
         <JoinTable setHash={main.setHash} />
       )
