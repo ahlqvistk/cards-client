@@ -50,7 +50,7 @@ const view = (state) => (
     {state.location.startsWith('/table/') &&
       (state.table.hash === state.hash ?
         <Table table={state.table} /> :
-        <JoinTable setHash={main.setHash} />
+        <JoinTable type={state.table.type} setHash={main.setHash} />
       )
     }
   </div>

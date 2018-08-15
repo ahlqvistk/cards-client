@@ -21,11 +21,14 @@ function handleJoin(e, setHash) {
   joinTable(name, hash);
 }
 
-export function JoinTable({setHash}) {
+export function JoinTable({type, setHash}) {
   return (
     <form class='join-table' onsubmit={(e) => handleJoin(e, setHash)}>
       <input id='name' type='name' placeholder='name' />
-      <input id='password' type='password' placeholder='password' />
+      {type === 'private' ?
+        <input id='password' type='password' placeholder='password' /> :
+        <input id='password' type='hidden' value='' />
+      }
       <button>Enter</button>
     </form>
   );
