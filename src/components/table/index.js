@@ -20,12 +20,13 @@ export const Table = ({table}) => {
           bid={player.bid >= 0 ? player.bid : '-'}
           cards={player.hasOwnProperty('cards') ? player.cards : []}
           dealer={table.dealer === player.socket.id}
-          index={index}
           key={player.socket.id}
           name={player.name}
           playedCard={
             player.hasOwnProperty('playedCard') ? player.playedCard : ''
           }
+          playerLength={table.players.length}
+          playerNumber={index + 1}
           points={
             player.hasOwnProperty('points') ?
               player.points.reduce((acc, cur) => acc + cur) : 0

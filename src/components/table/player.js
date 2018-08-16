@@ -9,16 +9,17 @@ export const Player = ({
   bid,
   cards,
   dealer,
-  index,
   name,
   playedCard,
+  playerLength,
+  playerNumber,
   points,
   status,
   tricks,
   winner,
 }) => (
-  index === 0 ?
-    <div class={'player player-' + index}>
+  playerNumber === 1 ?
+    <div class={'player player-' + playerNumber}>
       <PlayedCard card={playedCard} winner={winner} />
       <Markers
         active={active}
@@ -34,7 +35,7 @@ export const Player = ({
       <Hand cards={cards} />
       <div class='player-name'>{name}</div>
     </div> :
-    <div class={'player player-' + index}>
+    <div class={'player player-' + playerNumber + '-' + playerLength}>
       <div class='player-name'>{name}</div>
       <Hand cards={cards} />
       <Markers

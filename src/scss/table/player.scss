@@ -12,25 +12,29 @@
     }
 }
 
-.player-0 {
+// Bottom center
+.player-1 {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
-.player-1 {
+// Left center
+.player-2-3, .player-2-4 {
     top: 50%;
     transform: rotate(-90deg) translate(-50%, 0);
     transform-origin: 0% 0%;
 }
 
-.player-2 {
+// Top center
+.player-2-2, .player-3-4 {
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
-.player-3 {
+// Right center
+.player-3-3, .player-4-4, {
     right: 0;
     top: 50%;
     transform: rotate(90deg) translate(50%, 0);
