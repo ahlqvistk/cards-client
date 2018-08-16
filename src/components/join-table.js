@@ -24,10 +24,16 @@ function handleJoin(e, setHash) {
 export function JoinTable({type, setHash}) {
   return (
     <form class='join-table' onsubmit={(e) => handleJoin(e, setHash)}>
-      <input id='name' type='name' placeholder='name' />
+      <div>
+        <input id='name' type='name' placeholder='Name' />
+      </div>
       {type === 'private' ?
-        <input id='password' type='password' placeholder='password' /> :
-        <input id='password' type='hidden' value='' />
+        <div>
+          <input id='password' type='password' placeholder='Password' />
+        </div> :
+        <div>
+          <input id='password' type='hidden' value='' />
+        </div>
       }
       <button>Enter</button>
     </form>
